@@ -1,0 +1,13 @@
+{% load tz %}
+
+Current Date and Time (UTC): {% now "jS F Y H:i" %} </br>
+Current Date and Time (UTC): {% now "Y-m-d H:i:s" %} </br>
+It is the {% now 'jS \d\a\y \o\f F' %} </br>
+{% now "Y" as current_year %}
+Copyright {{ current_year }}</br>
+
+{% with current_year=now|date:"Y" pub_year=question.pub_date|date:"Y" %}
+    current_year is {{ current_year}} pub_year is {{ pub_year}}
+{% endwith %}
+    
+{{ question }}

@@ -1,0 +1,30 @@
+py manage.py sqlmigrate polls 0001
+ py manage.py makemigrations polls
+ 
+{% load tz %} used to load the time zone template tags
+
+{% with question_date=question.pub_date|date:"Y-m" %} - creates a variable question_date with the formatted year and month of 'question.pub_date'.
+
+now|date: "Y-m" - current month and year
+
+{%  comment "this is a comment" %}
+<p>comment this p out</p>
+{% endcomment %}
+
+<tr class="{% cycle 'row1' 'row2' %}">
+{% cycle 'row1' 'row2' as rowcolors %}
+
+It is the {% now "jS \o\f F" %}
+
+
+
+
+
+
+
+
+
+
+
+
+

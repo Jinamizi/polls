@@ -1,0 +1,17 @@
+{% load tz %} {# used to load time zone template tags #}
+
+{% if latest_question_list %}
+    <ul>
+    {% for question in latest_question_list %}
+     
+    {% if question.was_published_this_year %}
+        <li><a href="{% url 'polls:detail' question.id %}">{{ question.question_text }} {{ question.pub_date | date:"m-d"}}</a></li>
+    {% else %}
+        <li><a href="{% url 'polls:detail' question.id %}">{{ question.question_text }} {{ question.pub_date | date:"Y-m-d"}}</a></li>
+    {% endif %}            
+        
+    {% endfor %}
+    </ul>
+{% else %}
+    <p>No polls are available.</p>
+{% endif %}
