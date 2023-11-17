@@ -9,5 +9,7 @@
             <label for="choice{{ forloop.counter }}">{{ choice.choice_text }}</label><br>
         {% endfor %}
     </fieldset>
+
+    {# make this button inactive until an option is selected #}
     <input type="submit" value="Vote">
 </form>

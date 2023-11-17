@@ -1,5 +1,12 @@
-{% load tz %} {# used to load time zone template tags #}
-
+<html>
+<head>
+	<title>Polls</title>
+    {% load tz %} {# used to load time zone template tags #}
+	{% load static %}
+	<link rel="stylesheet", type="text/css" href="{% static 'polls/styles.css' %}">
+</head>
+</head>
+<body>
 {% if latest_question_list %}
     <ul>
     {% for question in latest_question_list %}
@@ -15,3 +22,6 @@
 {% else %}
     <p>No polls are available.</p>
 {% endif %}
+
+</body>
+</html>

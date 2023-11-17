@@ -16,9 +16,67 @@ now|date: "Y-m" - current month and year
 
 It is the {% now "jS \o\f F" %}
 
+always return an HttpResponseRedirect after successfully dealing with Post data. this prevent data from being posted twice if a user hits the back button.
+
+except (KeyError, Choice.DoesNotExist): This is a tuple of exceptions that the 'except' block is set to catch
+KeyError - occurs when a dictionary key is not found.
+Choice.DoesNotExist - occurs when trying to retrieve a single object from the 'Choice' model and it doesn't exist in the database.
+
+reverse() helps to avoid having to hardcode a url in the view function
+
+race condition
+from django.db.models import F
+reporter = Reporters.objects.get(name="Tintin")
+reporter.stories_filed = F("stories_filed") + 1
+reporter.save()
+
+when Django encounters an instanc of F(), it overrides the standard Python operators to create an encapsulated SQL expression.
+
+reporter = Reporters.objects.filter(name="Tintin")
+reporter.update(stories_filed=F("stories_filed") + 1)
+
+suppose we have a model called MyModel with fields 'field1' and 'field2' and we want to update 'field1' to be twice the value of 'field2'
+MyModel.objects.update(field1=F('field2') * 2)
 
 
 
+In Django, QuerySet are said to be lazy, which mean that database queries are not executed until necessary
+books = Book.objects.filter(author='John Doe')
+'books' is a QuerySet that represents a query to fetch all books written by 'John Doe'.
+
+The {% static %} template tag generates the absolute URL of static files
+
+class ChoiceInline(admin.TabularInline):
+class ChoiceInline(admin.StackInline):
+
+python decorators
+allows you to modify or extend the behaviour of functions without changing their actual code.
+They are essentially functions that take another function as an argument and return a new function, usually wrapping the original one with additional functionality
+
+DIRS is a list of filesystem directories to check when loading Django templates.
+
+any of Django's default admin templates can be overridden.
+
+the 'TEMPLATES' setting in the projects's settings file configure how Django will render HTML templates
+DjangoTemplatesBackend:Django supports various template engines, and DjangoTemplates is the built-in template engine provided by Django itself. It allows you to use Django's template language to write HTML templates. 
+When 'APP_DIRS' is set to 'True', it tells Django to look for templates within the 'templates' directory of your installed apps automatically.
+
+a python package provides a way of grouping related python code for easy use.
+
+pyproject.toml - used to define project metadata, build configurations, and dependencies
+
+[build-system]
+requires = ['setuptools>=40.8.0']
+build-backend = 'setuptools.build_meta'
+
+above section define the build system for a Python project.
+build system is responsible for generating the distribution packages (.whl and .tar.gz) that can be installed using pip.
+The requires option specifies the build dependencies for the project. In this case, the project requires setuptools version 40.8.0 or higher
+setups is a python package that is commonly used for packaging and distributing python projects
+
+build-backed - specifies the build backed that will be used to build the distribution packages.
+
+In summary, this section of the pyproject.toml file tells pip that the project requires setuptools version 40.8.0 or higher and that it should use the setuptools.build_meta backend to build the distribution packages.
 
 
 
